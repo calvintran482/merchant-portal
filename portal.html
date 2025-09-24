@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cashier Portal</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <h1 class="title">Cashier Portal</h1>
+        <p class="cashier-info">Cashier: <span id="cashierName">test</span></p>
+      </div>
+      <div class="header-right">
+        <button id="resetBtn" class="btn btn-outline">Reset</button>
+        <button id="logoutBtn" class="btn btn-outline">Logout</button>
+      </div>
+    </div>
+
+    <div class="card counter-card">
+      <h1 id="processedCount" class="counter">0</h1>
+      <p class="counter-label">Vouchers Processed</p>
+    </div>
+
+    <div class="card scanner-card">
+      <div class="scanner-header">
+        <h2 class="scanner-title">Voucher Scanner</h2>
+      </div>
+
+      <button id="scanButton" class="btn btn-primary scan-btn">Scan QR Code</button>
+
+      <div id="qrScannerContainer" class="qr-scanner-container" style="display:none;">
+        <div id="qrScanner"></div>
+        <button id="closeScanner" class="btn btn-secondary">Close Scanner</button>
+      </div>
+
+      <div class="manual-entry">
+        <span>Or enter code manually</span>
+      </div>
+
+      <div class="form-group">
+        <label for="voucherCode">Voucher Code</label>
+        <input type="text" id="voucherCode" placeholder="Enter voucher code" />
+      </div>
+
+      <button id="validateBtn" class="btn btn-secondary">Validate Code</button>
+
+      <div id="statusPill" class="status-pill" style="display:none;">
+        <svg id="validIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span id="statusText">Valid Voucher</span>
+      </div>
+
+      <div class="action-buttons">
+        <button id="finishBtn" class="btn btn-success" disabled>Finish</button>
+        <button id="cancelBtn" class="btn btn-outline">Cancel</button>
+      </div>
+    </div>
+
+    <p class="instructions">Position QR code in front of scanner or use manual entry</p>
+  </div>
+  <script src="/portal.js"></script>
+</body>
+</html>
